@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plant Monitor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .back-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .abc {
+      font-size: 1.4rem;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 12px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .monitor-button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: rgba(0, 123, 255, 0.85);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .monitor-button:hover {
+      background-color: rgba(0, 123, 255, 1);
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay loop muted playsinline class="back-video">
+    <source src="flower.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="overlay">
+    <div class="abc">Let your plants talk – we’ll do the watering</div>
+    <a href="Dashboard.html" class="monitor-button">Monitor Plant</a>
+  </div>
+
+</body>
+</html>

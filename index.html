@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSprinkle</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .main-container {
+      background: linear-gradient(to bottom left, #183e19 70%, #381d0b 40%, #c2c21f );
+      padding: 30px;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    .header {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header span.leaf {
+      color: #2e7d32;
+      font-size: 2.7rem;
+      position: relative;
+    }
+
+    .header span.leaf::after {
+      content: "🌿";
+      position: absolute;
+      left: -25px;
+      top: -5px;
+      font-size: 1.5rem;
+    }
+
+    .header span.drop::after {
+      content: "💧";
+      margin-left: 2px;
+      font-size: 1.2rem;
+    }
+
+    .content {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .box {
+      background-color: white;
+      padding: 0;
+      width: 35%;
+      margin: 0;
+      border-radius: 20px;
+    }
+
+    .box img {
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      mix-blend-mode: hard-light;
+    }
+
+    .text-section {
+      width: 50%;
+    }
+
+    h2 {
+      font-family: 'Georgia', serif;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    h2 .circle {
+      position: relative;
+      display: inline-block;
+      color: #FFEB3B;
+      text-shadow: 1px 1px 2px #333;
+      font-weight: bold;
+    }
+
+    .circle::before,
+    .circle::after {
+      content: "🌿";
+      position: absolute;
+      font-size: 1rem;
+      animation: sway 4s infinite ease-in-out;
+    }
+
+    .circle::before {
+      top: -12px;
+      left: -14px;
+      transform: rotate(-30deg);
+    }
+
+    .circle::after {
+      bottom: -12px;
+      right: -12px;
+      transform: rotate(30deg);
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(30deg); }
+      50% { transform: rotate(15deg); }
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-top: 10px;
+      color: #f0f0f0;
+    }
+
+    .login-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #388e3c;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 20px;
+      border: 2px solid #2e7d32;
+      transition: 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #c8e6c9;
+      color: #1b5e20;
+    }
+
+    h3 span {
+      color: #FFEB3B;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <span class="leaf">E</span>coSprinkl<span class="drop">e</span>
+    </div>
+
+    <div class="content">
+      <div class="box">
+        <img src="watering plant.jpg" alt="Watering Plant Image" />
+      </div>
+
+      <div class="text-section">
+        <h2>
+          Healthy R<span class="circle">oo</span>ts, Happy Sh<span class="circle">oo</span>ts
+        </h2>
+        <p>
+          This webpage displays real-time soil moisture data fetched from Firebase, showing how your Sensor-Based Plant Watering System monitors plant health and automates watering.
+        </p>
+
+        
+        <a href="/login.html" class="login-btn">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB55jCqTHNyMn7DqHha0vqkNhrhugkUnaQ",
+      authDomain: "ecosprinkle.firebaseapp.com",
+      databaseURL: "https://ecosprinkle-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "ecosprinkle",
+      storageBucket: "ecosprinkle.appspot.com",
+      messagingSenderId: "25413449590",
+      appId: "1:25413449590:web:2d410737f1dedd36fbec57",
+      measurementId: "G-YM95VEV5K4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Moisture reference
+    /*const moistureRef = ref(db, 'sensorData/moisture');
+    onValue(moistureRef, (snapshot) => {
+      const value = snapshot.val();
+      document.getElementById('moistureValue').textContent = value;
+    });
+
+    // Pump status reference
+    const pumpRef = ref(db, 'sensorData/pump');
+    onValue(pumpRef, (snapshot) => {
+      const status = snapshot.val();
+      document.getElementById('pumpStatus').textContent = status === 1 ? 'ON' : 'OFF';
+    });*/
+  </script>
+</body>
+</html>
